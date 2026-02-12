@@ -12,7 +12,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iridescent Sparks - Love Poems In The Key of Em</title>
-    <style>
+    
+    <meta name="author" content="Steven Mann">
+    <meta name="description" content="Iridescent Sparks — Love Poems In The Key of Em by Steven Mann. A collection of romantic poetry dedicated to Emilee Shuler.">
+
+    <link rel="canonical" href="https://iridescentsparks.com">
+
+    <meta property="og:title" content="Iridescent Sparks — Love Poems In The Key of Em">
+    <meta property="og:description" content="A collection of romantic poetry by Steven Mann.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iridescentsparks.com">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Iridescent Sparks — Love Poems In The Key of Em",
+      "author": {
+        "@type": "Person",
+        "name": "Steven Mann",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mobile",
+          "addressRegion": "AL",
+          "addressCountry": "US"
+        }
+      },
+      "url": "https://iridescentsparks.com"
+    }
+    </script>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -118,7 +147,29 @@
             box-shadow: 0 10px 30px rgba(255, 110, 196, 0.3);
         }
 
-        .poem-container {
+        
+        .contact-link {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 110, 196, 0.6);
+        }
+
+        .location-tagline {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: #666;
+            letter-spacing: 0.08em;
+        }
+.poem-container {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
@@ -188,6 +239,8 @@
             <p class="subtitle">Love Poems In The Key of Em</p>
             <p class="dedication">For Emilee Shuler<br>by Steven Mann</p>
             <button class="enter-btn" onclick="enterSite()">Enter</button>
+            <a class="contact-link" href="mailto:steven@stevenmann.io">Contact</a>
+            <div class="location-tagline">Written in Mobile, Alabama.</div>
         </div>
 
         <div id="poems" class="page hidden">
