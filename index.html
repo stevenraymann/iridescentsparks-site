@@ -5,18 +5,19 @@
     <link rel="icon" href="favicon.ico?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=2">
+
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
     <link rel="manifest" href="manifest.webmanifest?v=2">
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Iridescent Sparks — Love Poems In The Key of Em</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iridescent Sparks - Love Poems In The Key of Em</title>
+    
     <meta name="author" content="Steven Mann">
     <meta name="description" content="Iridescent Sparks — Love Poems In The Key of Em by Steven Mann. A collection of romantic poetry dedicated to Emilee Shuler.">
+
     <link rel="canonical" href="https://iridescentsparks.com">
+
     <meta property="og:title" content="Iridescent Sparks — Love Poems In The Key of Em">
     <meta property="og:description" content="A collection of romantic poetry by Steven Mann.">
     <meta property="og:type" content="website">
@@ -40,26 +41,17 @@
       "url": "https://iridescentsparks.com"
     }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-
-    <style>
+<style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            -webkit-text-size-adjust: 100%;
-        }
-
         body {
             background: #000;
             color: #fff;
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Georgia', serif;
             overflow-x: hidden;
         }
 
@@ -73,7 +65,9 @@
             pointer-events: none;
         }
 
-        canvas { display: block; }
+        canvas {
+            display: block;
+        }
 
         .content {
             position: relative;
@@ -87,142 +81,63 @@
             justify-content: center;
             align-items: center;
             padding: 4rem 2rem;
-            padding-top: max(4rem, env(safe-area-inset-top));
-            padding-bottom: max(4rem, env(safe-area-inset-bottom));
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in forwards;
         }
 
-        .hidden { display: none !important; }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
 
-        /* ============ PROPOSAL LANDING ============ */
-
-        #proposal {
+        .landing {
             text-align: center;
-            opacity: 0;
-            animation: gentleFadeIn 2s ease 0.3s forwards;
         }
 
-        @keyframes gentleFadeIn {
-            from { opacity: 0; transform: translateY(16px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .proposal-inner {
-            max-width: 560px;
-            width: 100%;
-        }
-
-        .to-name {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-            letter-spacing: 0.45em;
-            color: #666;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 0.8s forwards;
-        }
-
-        .proposal-title {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.8rem, 5vw, 3.2rem);
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            margin-bottom: 2.5rem;
+        .title-main {
+            font-size: clamp(2rem, 6vw, 5rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
             background: linear-gradient(135deg, #ff6ec4, #7873f5, #4fd1c5, #00ff88, #ffd700);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: shimmer 8s ease infinite, gentleFadeIn 1.5s ease 1.3s both;
+            animation: shimmer 8s ease infinite;
         }
 
-        .proposal-divider {
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,110,196,0.5), transparent);
-            margin: 0 auto 2.5rem;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 1.8s forwards;
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        .proposal-poem {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 300;
-            line-height: 2.2;
-            color: #e0e0e0;
-            white-space: pre-line;
-            letter-spacing: 0.02em;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: gentleFadeIn 2s ease 2.3s forwards;
+            letter-spacing: 0.1em;
+            color: #ccc;
+            margin-bottom: 0.5rem;
         }
 
-        .proposal-poem .final-question {
-            display: block;
-            margin-top: 1.2rem;
+        .dedication {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
             font-style: italic;
-            font-size: clamp(1.25rem, 3.2vw, 1.7rem);
-            background: linear-gradient(135deg, #ff6ec4, #7873f5, #4fd1c5);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 6s ease infinite;
-        }
-
-        .proposal-divider-bottom {
-            width: 50px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,110,196,0.4), transparent);
-            margin: 0 auto 2rem;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 4s forwards;
-        }
-
-        .proposal-attribution {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(0.6rem, 1.4vw, 0.75rem);
-            letter-spacing: 0.3em;
-            color: #555;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 4.3s forwards;
-        }
-
-        .heart-wrap {
-            display: block;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 4.8s forwards;
-        }
-
-        .heart {
-            display: inline-block;
-            color: rgba(255, 110, 196, 0.7);
-            font-size: 1rem;
-            animation: heartbeat 2.5s ease 5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1);    opacity: 0.7; }
-            50%       { transform: scale(1.35); opacity: 1;   }
+            color: #999;
+            margin-top: 2rem;
         }
 
         .enter-btn {
-            margin-top: 0.5rem;
+            margin-top: 3rem;
             padding: 1rem 3rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
-            font-size: 1rem;
-            letter-spacing: 0.2em;
+            font-size: 1.1rem;
+            letter-spacing: 0.15em;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            font-family: 'Cinzel', serif;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 5.3s forwards;
+            font-family: 'Georgia', serif;
         }
 
         .enter-btn:hover {
@@ -232,17 +147,38 @@
             box-shadow: 0 10px 30px rgba(255, 110, 196, 0.3);
         }
 
+        
+        .buy-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.9rem 2.5rem;
+            background: linear-gradient(135deg, rgba(255,110,196,0.12), rgba(120,115,245,0.12));
+            border: 1px solid rgba(255,110,196,0.4);
+            color: #fff;
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Georgia', serif;
+            text-decoration: none;
+        }
+
+        .buy-btn:hover {
+            background: linear-gradient(135deg, rgba(255,110,196,0.25), rgba(120,115,245,0.25));
+            border-color: rgba(255,110,196,0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(255,110,196,0.2);
+        }
+
         .contact-link {
             margin-top: 1.5rem;
-            font-size: 0.85rem;
-            letter-spacing: 0.12em;
-            color: #444;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            color: #aaa;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
-            font-family: 'Cinzel', serif;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 5.6s forwards;
         }
 
         .contact-link:hover {
@@ -252,28 +188,14 @@
 
         .location-tagline {
             margin-top: 0.75rem;
-            font-size: 0.75rem;
-            color: #444;
-            letter-spacing: 0.1em;
-            font-style: italic;
-            opacity: 0;
-            animation: gentleFadeIn 1.5s ease 5.8s forwards;
+            font-size: 0.8rem;
+            color: #666;
+            letter-spacing: 0.08em;
         }
-
-        /* ============ POEMS (original styles preserved) ============ */
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        #poems { text-align: center; }
-
-        .poem-container {
+.poem-container {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in forwards;
         }
 
         .poem-title {
@@ -285,7 +207,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: shimmer 6s ease infinite;
-            font-family: 'Cinzel', serif;
         }
 
         .poem-text {
@@ -311,8 +232,7 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 0.1em;
+            font-family: 'Georgia', serif;
         }
 
         .nav-btn:hover {
@@ -320,50 +240,57 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
+        .hidden {
+            display: none;
+        }
+
         .poem-number {
-            font-size: 0.85rem;
-            color: #555;
+            font-size: 0.9rem;
+            color: #666;
             margin-top: 1rem;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 0.15em;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50%       { background-position: 100% 50%; }
-        }
-
-        /* ============ RESPONSIVE ============ */
-        @media (max-width: 480px) {
-            .page {
-                padding: 3rem 1.5rem;
-                padding-left: max(1.5rem, env(safe-area-inset-left));
-                padding-right: max(1.5rem, env(safe-area-inset-right));
-            }
-            .proposal-poem { line-height: 2; }
-            .proposal-title { letter-spacing: 0.07em; }
         }
     </style>
 </head>
 <body>
+    <div class="canvas-container">
+        <canvas id="particles"></canvas>
+    </div>
 
-<div class="canvas-container">
-    <canvas id="particles"></canvas>
-</div>
+    <div class="content">
+        <div id="landing" class="page landing">
+            <h1 class="title-main">Iridescent Sparks</h1>
+            <p class="subtitle">Love Poems In The Key of Em</p>
+            <p class="dedication">For Emilee Shuler<br>by Steven Mann</p>
+            <button class="enter-btn" onclick="enterSite()">Enter</button>
+            <a class="buy-btn" href="https://www.amazon.com/Iridescent-Sparks-Love-Poems-Key/dp/B0GTCY8FF6/" target="_blank" rel="noopener">Get the Book on Amazon</a>
+            <a class="contact-link" href="mailto:steven@stevenmann.io">Write to us</a>
+            <div class="location-tagline">Written in Mobile, Alabama.</div>
+        </div>
 
-<div class="content">
+        <div id="poems" class="page hidden">
+            <div class="poem-container">
+                <h2 class="poem-title" id="poemTitle"></h2>
+                <div class="poem-text" id="poemText"></div>
+                <div class="poem-number" id="poemNumber"></div>
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="prevPoem()">← Previous</button>
+                    <button class="nav-btn" onclick="showLanding()">Home</button>
+                    <button class="nav-btn" onclick="nextPoem()">Next →</button>
+                </div>
+                <div style="margin-top:2rem; font-size:0.8rem; letter-spacing:0.12em; font-family:'Georgia',serif;">
+                    <a href="https://www.amazon.com/Iridescent-Sparks-Love-Poems-Key/dp/B0GTCY8FF6/" target="_blank" rel="noopener" style="color:rgba(255,110,196,0.7); text-decoration:none; text-transform:uppercase; transition:color 0.3s;" onmouseover="this.style.color='#ff6ec4'" onmouseout="this.style.color='rgba(255,110,196,0.7)'">Get the Book on Amazon</a>
+                    <span style="color:#333; margin:0 1rem;">·</span>
+                    <a href="mailto:steven@stevenmann.io" style="color:#555; text-decoration:none; text-transform:uppercase; transition:color 0.3s;" onmouseover="this.style.color='#aaa'" onmouseout="this.style.color='#555'">Write to Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- ======== PROPOSAL LANDING ======== -->
-    <div id="proposal" class="page">
-        <div class="proposal-inner">
-
-            <p class="to-name">For Emilee</p>
-
-            <h1 class="proposal-title">Marry Me</h1>
-
-            <div class="proposal-divider"></div>
-
-            <div class="proposal-poem">You've always been like a dream to me
+    <script>
+        const poems = [
+        {
+                title: "Marry Me",
+                text: `You've always been like a dream to me
 Now I find myself in the reality of our life together
 And I want to be a man worthy of you
 To carry you through the dark and be your shield
@@ -373,216 +300,327 @@ With sunflowers that can never
 Match you in radiance
 And forever I'll carry you
 If you will carry me
-<span class="final-question">Will you marry me</span></div>
 
-            <div class="proposal-divider-bottom"></div>
+Will you marry me`
+            },
+        {
+                title: "Journey",
+                text: `It's been a hell of a march through Hell in the dark
+But I'd go through it all again for you touch my heart
+You are the glow and the life in the iridescent sparks
+And had I known it would lead to you from the start
+I wouldn't have loathed the journey`
+            },
+        {
+                title: "Eternal",
+                text: `When the clouds obliterate the sun's sweet rays 
+Know that I'll be there on your darkest days 
+When the roads of life twist into the nether 
+We'll find our way through the maze together 
 
-            <p class="proposal-attribution">Steven Ray Mann</p>
+If you are the ocean then I am the flow 
+Traveling through your depths below 
+And as the waves crash across your skin 
+Know that my presence has no end 
+`
+            },{
+                title: "Sunflower",
+                text: `My heart is a star that burns and composes
+Poems of a sunflower in a garden of roses
+It's a cosmic, ethereal flow
+Each stanza a perception of her written, just so
 
-            <span class="heart-wrap">
-                <span class="heart">♡</span>
-            </span>
+She's a sunflower among thorns and petals of crimson
+A fractal of beauty in every dimension
+A lunar aspect, a shadow of solar extension
+Cosmic in being, a celestial ascension
+Casting her eclipse on my heart
+Just like she did when our eyes locked at the start
+And we found ourselves in this dance of divinity's art
+Content with this union never to part
+All consuming, there's nothing that's consumed in part
 
-            <button class="enter-btn" onclick="enterSite()">Enter</button>
+My heart is a star that burns and composes
+Poems of a sunflower in a garden of roses
+It's a cosmic, ethereal flow
+Each stanza a perception of her written, just so`
+            },
+        {
+                title: "Shining",
+                text: `It wasn't the stars; it was God 
+That moved when you moved and moved me 
+And the sound of your voice just moved right through me 
+Nothing's changed since that day 
+When God touched my life and rearranged 
+Everything in my life around you 
+And I finally found you 
+Standing on the altar in the temple of God 
+Singing to a chorus of angelic applaud 
+In my heart like a sonic storm
+Shining like the sun in feminine form`
+            },
+        {
+                title: "Forever",
+                text: `What good are dates when you were mine from the start
+Alight in the pyre of the fire of my heart 
+I'll always love you wholly with every part 
+Of my being, you're the reason for not falling apart 
+You're the why
+The nova that exploded in the black of my sky 
+When I saw you as a votary with sapphire eyes 
+So I love you forever and I'll never just try`
+            },
+        {
+                title: "Waterfalls",
+                text: `Even when you're not here with me
+I can feel you in synchronicity
+The quantum ocean is a flow in your flux
+Of all the meaning in my life, you are the crux
+The sweet meat of my heart drips soul in your name
+And nothing is the same
+Since the first time you touched me
+Sweet votary flower, lover of the minor key
+Take me higher and we'll float away
+Past the dark to the dawn of day
+I can feel you like harmonics on my skin
+Never let the chemistry of those moments end
+I want you to dance in the gardens I build for you
+And drink from the cup that I filled for you
+I'll man the towers and guard the walls
+And shower you with love like waterfalls`
+            },
+           {
+                title: "Tender Kind",
+                text: `I just left your house
+And you're burning on my mind 
+I never thought I'd have this love 
+A love of tender kind 
+For many men, this world have roamed
+And gave their lives to find
+What my love has given me
+This love of tender kind`
+            },
+            {
+                title: "Flower",
+                text: `I carried memories in the sanctuary
+But that flower was so nice
+Like petals of solemn melody
+I started to not think twice
+But I can't let myself be reckless, yet
+If I go all in I might lose the bet
+And I've rarely been one to wager
+I wonder if she prefers the minor
+Key or the major`
+            },
+            {
+                title: "There She Is",
+                text: `I sought the other half of my soul
+Until cynicism won and I thought I'd never be whole
+And I didn't even believe in this 
+Then I looked up and my heart said
+There she is
 
-            <a class="contact-link" href="/cdn-cgi/l/email-protection#ec9f98899a8982ac9f98899a8982818d8282c28583">Contact</a>
-            <div class="location-tagline">Written in Mobile, Alabama.</div>
+You're the fruit in the garden of premonitions of us 
+You make my heart combust 
+You fill me with love and turn my world to dust
+You're the soft place I've needed in my quest for trust 
+And at a time when I thought I'd never find this
+I looked up and my heart said
+There she is`
+            },
+            {
+                title: "Melody",
+                text: `I met music and her name is Emilee
+When she speaks, she speaks in melody 
+She laughs in harmonics and the sound is heavenly
+And when she moves I can feel her energy
+It gets the best of me`
+            },
+            {
+                title: "Overwhelm",
+                text: `I miss you every moment
+But your voice is in my head
+Whispering to my heart
+About all the things you've said
+We can turn teal skies to purple
+If we add the color red
+With the union of the blood
+From everything we've ever bled
+And I'm ready
+For now it's time for healing
+In the deepest parts
+Of the souls that we're revealing
+And I'm awash in the overwhelm
+Of something so much more than feeling
+I don't mean to overwhelm you
+But you overwhelm me, too
+With the soft and sweet intensity
+That is the being, you`
+            },
+            {
+                title: "Sacrament",
+                text: `We found each other in a liminal key
+And I knew I loved you immediately
+Life is a rollercoaster, ebb and flow
+You can't expect others to know what you know
 
-        </div>
-    </div>
+Close your eyes and breathe; I will never leave
+What you see is what you should believe
+Reach and feel what your hand touches
+I'll hold you gently in love's warm clutches
 
-    <!-- ======== POEMS ======== -->
-    <div id="poems" class="page hidden">
-        <div class="poem-container">
-            <h2 class="poem-title" id="poemTitle"></h2>
-            <div class="poem-text" id="poemText"></div>
-            <div class="poem-number" id="poemNumber"></div>
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="prevPoem()">← Previous</button>
-                <button class="nav-btn" onclick="showLanding()">Home</button>
-                <button class="nav-btn" onclick="nextPoem()">Next →</button>
-            </div>
-        </div>
-    </div>
+I'm a man of the wild with eyes that know
+The pale thing in the darkness beneath night's glow
+A knight in armor that's dull and tested
+For I've been knocked down, but I've never been bested
 
-</div>
+Until I met you and tasted
+A drop of this sacrament that I hold sacred
+It's a gift that was given from above
+For that sacrament is you, your affection, and love`
+            },
+            {
+                title: "The Key of Em",
+                text: `You still make my heart skip beats
+When I watch you move through life
+With every touch I'm hungrier
+For more of you
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script>
-    const poems = [
-        {
-            title: "Journey",
-            text: `It's been a hell of a march through Hell in the dark\nBut I'd go through it all again for you touch my heart\nYou are the glow and the life in the iridescent sparks\nAnd had I known it would lead to you from the start\nI wouldn't have loathed the journey`
-        },
-        {
-            title: "Eternal",
-            text: `When the clouds obliterate the sun's sweet rays\nKnow that I'll be there on your darkest days\nWhen the roads of life twist into the nether\nWe'll find our way through the maze together\n\nIf you are the ocean then I am the flow\nTraveling through your depths below\nAnd as the waves crash across your skin\nKnow that my presence has no end`
-        },
-        {
-            title: "Sunflower",
-            text: `My heart is a star that burns and composes\nPoems of a sunflower in a garden of roses\nIt's a cosmic, ethereal flow\nEach stanza a perception of her written, just so\n\nShe's a sunflower among thorns and petals of crimson\nA fractal of beauty in every dimension\nA lunar aspect, a shadow of solar extension\nCosmic in being, a celestial ascension\nCasting her eclipse on my heart\nJust like she did when our eyes locked at the start\nAnd we found ourselves in this dance of divinity's art\nContent with this union never to part\nAll consuming, there's nothing that's consumed in part\n\nMy heart is a star that burns and composes\nPoems of a sunflower in a garden of roses\nIt's a cosmic, ethereal flow\nEach stanza a perception of her written, just so`
-        },
-        {
-            title: "Shining",
-            text: `It wasn't the stars; it was God\nThat moved when you moved and moved me\nAnd the sound of your voice just moved right through me\nNothing's changed since that day\nWhen God touched my life and rearranged\nEverything in my life around you\nAnd I finally found you\nStanding on the altar in the temple of God\nSinging to a chorus of angelic applaud\nIn my heart like a sonic storm\nShining like the sun in feminine form`
-        },
-        {
-            title: "Forever",
-            text: `What good are dates when you were mine from the start\nAlight in the pyre of the fire of my heart\nI'll always love you wholly with every part\nOf my being, you're the reason for not falling apart\nYou're the why\nThe nova that exploded in the black of my sky\nWhen I saw you as a votary with sapphire eyes\nSo I love you forever and I'll never just try`
-        },
-        {
-            title: "Waterfalls",
-            text: `Even when you're not here with me\nI can feel you in synchronicity\nThe quantum ocean is a flow in your flux\nOf all the meaning in my life, you are the crux\nThe sweet meat of my heart drips soul in your name\nAnd nothing is the same\nSince the first time you touched me\nSweet votary flower, lover of the minor key\nTake me higher and we'll float away\nPast the dark to the dawn of day\nI can feel you like harmonics on my skin\nNever let the chemistry of those moments end\nI want you to dance in the gardens I build for you\nAnd drink from the cup that I filled for you\nI'll man the towers and guard the walls\nAnd shower you with love like waterfalls`
-        },
-        {
-            title: "Tender Kind",
-            text: `I just left your house\nAnd you're burning on my mind\nI never thought I'd have this love\nA love of tender kind\nFor many men, this world have roamed\nAnd gave their lives to find\nWhat my love has given me\nThis love of tender kind`
-        },
-        {
-            title: "Flower",
-            text: `I carried memories in the sanctuary\nBut that flower was so nice\nLike petals of solemn melody\nI started to not think twice\nBut I can't let myself be reckless, yet\nIf I go all in I might lose the bet\nAnd I've rarely been one to wager\nI wonder if she prefers the minor\nKey or the major`
-        },
-        {
-            title: "There She Is",
-            text: `I sought the other half of my soul\nUntil cynicism won and I thought I'd never be whole\nAnd I didn't even believe in this\nThen I looked up and my heart said\nThere she is\n\nYou're the fruit in the garden of premonitions of us\nYou make my heart combust\nYou fill me with love and turn my world to dust\nYou're the soft place I've needed in my quest for trust\nAnd at a time when I thought I'd never find this\nI looked up and my heart said\nThere she is`
-        },
-        {
-            title: "Melody",
-            text: `I met music and her name is Emilee\nWhen she speaks, she speaks in melody\nShe laughs in harmonics and the sound is heavenly\nAnd when she moves I can feel her energy\nIt gets the best of me`
-        },
-        {
-            title: "Overwhelm",
-            text: `I miss you every moment\nBut your voice is in my head\nWhispering to my heart\nAbout all the things you've said\nWe can turn teal skies to purple\nIf we add the color red\nWith the union of the blood\nFrom everything we've ever bled\nAnd I'm ready\nFor now it's time for healing\nIn the deepest parts\nOf the souls that we're revealing\nAnd I'm awash in the overwhelm\nOf something so much more than feeling\nI don't mean to overwhelm you\nBut you overwhelm me, too\nWith the soft and sweet intensity\nThat is the being, you`
-        },
-        {
-            title: "Sacrament",
-            text: `We found each other in a liminal key\nAnd I knew I loved you immediately\nLife is a rollercoaster, ebb and flow\nYou can't expect others to know what you know\n\nClose your eyes and breathe; I will never leave\nWhat you see is what you should believe\nReach and feel what your hand touches\nI'll hold you gently in love's warm clutches\n\nI'm a man of the wild with eyes that know\nThe pale thing in the darkness beneath night's glow\nA knight in armor that's dull and tested\nFor I've been knocked down, but I've never been bested\n\nUntil I met you and tasted\nA drop of this sacrament that I hold sacred\nIt's a gift that was given from above\nFor that sacrament is you, your affection, and love`
-        },
-        {
-            title: "The Key of Em",
-            text: `You still make my heart skip beats\nWhen I watch you move through life\nWith every touch I'm hungrier\nFor more of you\n\nYou're like the taste of ambrosia when I'm dying of thirst\nEvery morning I wake up I think of you first\nYou're the iridescence in every iridescent spark\nThat sets me on fire in the void of the dark\n\nYou're a love song in the key of Em\nThe fervor in my heart\nThoughts of you slice through me\nIn poetry`
+You're like the taste of ambrosia when I'm dying of thirst 
+Every morning I wake up I think of you first 
+You're the iridescence in every iridescent spark 
+That sets me on fire in the void of the dark 
+
+You're a love song in the key of Em
+The fervor in my heart 
+Thoughts of you slice through me 
+In poetry`
+            }
+        ];
+
+        let currentPoem = 0;
+
+        function showLanding() {
+            document.getElementById('landing').classList.remove('hidden');
+            document.getElementById('poems').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    ];
 
-    let currentPoem = 0;
+        function enterSite() {
+            document.getElementById('landing').classList.add('hidden');
+            document.getElementById('poems').classList.remove('hidden');
+            displayPoem(0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-    function showLanding() {
-        document.getElementById('poems').classList.add('hidden');
-        document.getElementById('proposal').classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        function displayPoem(index) {
+            const poem = poems[index];
+            document.getElementById('poemTitle').textContent = poem.title;
+            document.getElementById('poemText').textContent = poem.text;
+            document.getElementById('poemNumber').textContent = `Poem ${index + 1} of ${poems.length}`;
+        }
 
-    function enterSite() {
-        document.getElementById('proposal').classList.add('hidden');
-        document.getElementById('poems').classList.remove('hidden');
-        displayPoem(0);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        function nextPoem() {
+            currentPoem = (currentPoem + 1) % poems.length;
+            displayPoem(currentPoem);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-    function displayPoem(index) {
-        const poem = poems[index];
-        document.getElementById('poemTitle').textContent = poem.title;
-        document.getElementById('poemText').textContent = poem.text;
-        document.getElementById('poemNumber').textContent = `Poem ${index + 1} of ${poems.length}`;
-    }
+        function prevPoem() {
+            currentPoem = (currentPoem - 1 + poems.length) % poems.length;
+            displayPoem(currentPoem);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-    function nextPoem() {
-        currentPoem = (currentPoem + 1) % poems.length;
-        displayPoem(currentPoem);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        // Particle canvas animation
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
 
-    function prevPoem() {
-        currentPoem = (currentPoem - 1 + poems.length) % poems.length;
-        displayPoem(currentPoem);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // ============ PARTICLES ============
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-    });
 
-    const particles = [];
-    const particleCount = 90;
-
-    class Particle {
-        constructor() { this.reset(true); }
-
-        reset(randomY) {
-            this.x = Math.random() * canvas.width;
-            this.y = randomY ? Math.random() * canvas.height : canvas.height + 10;
-            this.size = Math.random() * 2.5 + 0.5;
-            this.speedX = (Math.random() - 0.5) * 0.4;
-            this.speedY = -(Math.random() * 0.3 + 0.1);
-            const colors = [
-                Math.random() * 40 + 300,
-                Math.random() * 30 + 270,
-                Math.random() * 20 + 45,
-                Math.random() * 20 + 160,
-                Math.random() * 40 + 160,
-            ];
-            this.hue = colors[Math.floor(Math.random() * colors.length)];
-            this.opacity = Math.random() * 0.45 + 0.15;
-        }
-
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-            if (this.y < -20) this.reset(false);
-        }
-
-        draw() {
-            ctx.fillStyle = `hsla(${this.hue}, 72%, 65%, ${this.opacity})`;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-
-            const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 10);
-            g.addColorStop(0, `hsla(${this.hue}, 72%, 65%, ${this.opacity * 0.3})`);
-            g.addColorStop(1, 'transparent');
-            ctx.fillStyle = g;
-            ctx.fillRect(this.x - this.size * 10, this.y - this.size * 10, this.size * 20, this.size * 20);
-        }
-    }
-
-    for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-    function animate() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    document.addEventListener('mousemove', (e) => {
-        particles.forEach(p => {
-            const dx = e.clientX - p.x;
-            const dy = e.clientY - p.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 150) {
-                const force = (150 - dist) / 150;
-                p.speedX += (dx / dist) * force * 0.06;
-                p.speedY += (dy / dist) * force * 0.06;
-                const speed = Math.sqrt(p.speedX ** 2 + p.speedY ** 2);
-                if (speed > 1.8) {
-                    p.speedX = (p.speedX / speed) * 1.8;
-                    p.speedY = (p.speedY / speed) * 1.8;
-                }
-            }
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         });
-    });
-</script>
 
+        const particles = [];
+        const particleCount = 80;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                // Mix of purples, pinks, cyans, and greens
+                const colors = [
+                    Math.random() * 60 + 270,  // Purple to pink (270-330)
+                    Math.random() * 40 + 160,  // Cyan to green (160-200)
+                    Math.random() * 30 + 140   // Green range (140-170)
+                ];
+                this.hue = colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, 0.6)`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 10);
+                gradient.addColorStop(0, `hsla(${this.hue}, 70%, 60%, 0.2)`);
+                gradient.addColorStop(1, 'transparent');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(this.x - this.size * 10, this.y - this.size * 10, this.size * 20, this.size * 20);
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            particles.forEach(particle => {
+                const dx = mouseX - particle.x;
+                const dy = mouseY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 150) {
+                    particle.speedX -= dx * 0.0001;
+                    particle.speedY -= dy * 0.0001;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
